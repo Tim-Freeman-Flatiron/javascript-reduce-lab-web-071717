@@ -1,5 +1,11 @@
 const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
 
+function sumArray(accumulator, element) {
+  return accumulator += element;
+}
+
+let totalBatteries = batteryBatches.reduce(sumArray, 0)
+
 const monologueLines = [
   'Who are you talking to right now?',
   'Who is it you think you see?',
@@ -16,3 +22,17 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+let wordCountMap = monologueLines.reduce(countWords, {});
+
+function countWords(object, sentence) {
+  var words = sentence.split(' ').length
+  if (object[words]) {
+    object[words] += 1;
+  } else {
+    object[words] = 1;
+  }
+  
+  return object;
+
+}
